@@ -1,8 +1,16 @@
+using Application;
 using Presentation.Extensions;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Host.UseSerilog(
+    (context, loggerConfig) =>
+    {
+        loggerConfig.ReadFrom.Configuration(context.Configuration);
+    }
+);
 var services = builder.Services;
-
+services.AddMediatr();
 services.AddControllersWithViews();
 services.AddService();
 services.AddIdentityConfig();

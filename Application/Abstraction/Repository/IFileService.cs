@@ -1,4 +1,4 @@
-﻿namespace Application.Abstraction;
+﻿namespace Application.Abstraction.Repository;
 
 public interface IFileService
 {

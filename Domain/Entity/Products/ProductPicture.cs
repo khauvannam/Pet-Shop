@@ -1,6 +1,6 @@
 ﻿namespace Domain.Entity.Products;
 
-public class ProductPictures
+public class ProductPicture
 {
     public string PictrueId { get; set; }
     public string Link { get; set; }

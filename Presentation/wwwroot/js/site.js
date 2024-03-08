@@ -1,7 +1,16 @@
 ﻿"use strict";
-$(".nav__content").click((e) => {
-  $(".nav__item").removeClass("is--actived");
+
+//Models
+
+
+//EventHandlers
+
+
+ function navContentClick(e) {
+  $(".nav__item").removeClass("is--activated");
   const items = $(e.target.closest(".nav__item"));
   if (!items) return;
-  items.addClass("is--actived");
-});
+  items.addClass("is--activated");
+}
+// Controllers
+$(".nav__content").click(navContentClick);

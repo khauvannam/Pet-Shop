@@ -8,4 +8,6 @@ public sealed class User : IdentityUser<string>
     {
         Id = Guid.NewGuid().ToString();
     }
+
+    public string Avatar { get; set; } = null!;
 }

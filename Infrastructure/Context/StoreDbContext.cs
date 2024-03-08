@@ -7,14 +7,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Context;
 
-public class StoreDbContext : IdentityDbContext<User, IdentityRole, string>
+public class StoreDbContext(DbContextOptions<StoreDbContext> options)
+    : IdentityDbContext<User, IdentityRole, string>(options)
 {
-    public StoreDbContext(DbContextOptions<StoreDbContext> options)
-        : base(options) { }
-
     public DbSet<Product> Products { get; set; } = null!;
     public DbSet<Category> Categories { get; set; } = null!;
-    public DbSet<ProductPictures> PicturesEnumerable { get; set; } = null!;
+    public DbSet<ProductPicture> ProductPictures { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -25,7 +23,7 @@ public class StoreDbContext : IdentityDbContext<User, IdentityRole, string>
         modelBuilder.Entity<Product>().HasKey(p => p.ProductId);
         modelBuilder
             .Entity<Product>()
-            .HasMany(p => p.ProductPicturesList)
+            .HasMany(p => p.ProductPictures)
             .WithOne(pp => pp.Product)
             .HasForeignKey(p => p.ProductId)
             .OnDelete(DeleteBehavior.Cascade);
@@ -34,11 +32,11 @@ public class StoreDbContext : IdentityDbContext<User, IdentityRole, string>
 
         #region product picture table
 
-        modelBuilder.Entity<ProductPictures>().HasKey(pp => pp.PictrueId);
+        modelBuilder.Entity<ProductPicture>().HasKey(pp => pp.PictrueId);
         modelBuilder
-            .Entity<ProductPictures>()
+            .Entity<ProductPicture>()
             .HasOne(pp => pp.Product)
-            .WithMany(p => p.ProductPicturesList)
+            .WithMany(p => p.ProductPictures)
             .HasForeignKey(pp => pp.ProductId)
             .OnDelete(DeleteBehavior.Restrict);
 

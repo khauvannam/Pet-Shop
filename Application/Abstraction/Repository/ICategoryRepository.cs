@@ -1,7 +1,7 @@
 ﻿using Application.Results;
 using Domain.Entity.Categories;
 
-namespace Application.Abstraction;
+namespace Application.Abstraction.Repository;
 
 public interface ICategoryRepository
 {

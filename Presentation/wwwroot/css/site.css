@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.is--actived {
+.is--activated {
     @apply bg-amber-300
 }
