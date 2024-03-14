@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Domain.Entity.ProductRelationships;
+using Microsoft.AspNetCore.Identity;
 
 namespace Domain.Entity.Users;
 
@@ -9,5 +10,7 @@ public sealed class User : IdentityUser<string>
         Id = Guid.NewGuid().ToString();
     }
 
-    public string Avatar { get; set; } = null!;
+    public string? Avatar { get; set; }
+    public List<Cart> Carts { get; init; }
+    public List<RecentlyView> RecentlyViews { get; init; }
 }

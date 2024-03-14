@@ -5,9 +5,11 @@ namespace Domain.Entity.ProductRelationships;
 
 public class Cart
 {
-    public string ProductId { get; set; }
-    public Product Product { get; set; }
-    public string UserId { get; set; }
-    public User User { get; set; }
+    public string CartId = Guid.NewGuid().ToString();
     public int Quantity { get; set; } = 1;
+    public DateTime CreatedAt { get; set; }
+    public string ProductVariationId { get; init; }
+    public ProductVariation ProductVariation { get; init; }
+    public string UserId { get; init; }
+    public User User { get; init; }
 }

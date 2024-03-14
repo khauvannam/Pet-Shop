@@ -16,14 +16,14 @@ public class AccountRepository(
     SignInManager<User> signInManager
 ) : IAccountRepository
 {
-    public async Task<Result<string>> Register(RegisterViewModel registerViewModel)
+    public async Task<Result> Register(RegisterViewModel registerViewModel)
     {
         var user = mapper.Map<RegisterViewModel, User>(registerViewModel);
         user.SecurityStamp = Guid.NewGuid().ToString();
-        var result = await userManager.CreateAsync(user, registerViewModel.Password);
-        if (!result.Succeeded)
+        var currentResult = await userManager.CreateAsync(user, registerViewModel.Password!);
+        if (!currentResult.Succeeded)
         {
-            return UserErrors.SameInfo;
+            return Result.Failure(UserErrors.IsUsed(user.Email!, user.UserName!));
         }
 
         var claims = new List<Claim>
@@ -32,7 +32,7 @@ public class AccountRepository(
             new(UserClaims.Name, user.UserName!)
         };
         await userManager.AddClaimsAsync(user, claims);
-        return user.UserName!;
+        return Result.Success();
     }
 
     public Task<Result<string>> Login(LoginViewModel loginViewModel)
@@ -40,12 +40,12 @@ public class AccountRepository(
         throw new NotImplementedException();
     }
 
-    public Task<Result<string>> ForgotPassword(ForgotPasswordDto forgotPasswordDto)
+    public Task<Result<string>> ForgotPassword(ForgotPasswordViewModel forgotPasswordViewModel)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Result<string>> ResetPassword(ResetPasswordDto resetPasswordDto)
+    public Task<Result<string>> ResetPassword(ResetPasswordViewModel resetPasswordViewModel)
     {
         throw new NotImplementedException();
     }

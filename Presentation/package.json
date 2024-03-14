@@ -6,14 +6,15 @@
   "scripts": {
     "css:build": "pnpm dlx tailwindcss -i ./wwwroot/css/site.css -o ./wwwroot/css/styles.css --minify --watch",
     "watch": "dotnet watch run",
-    "dev": "npm-run-all -p -r watch css:build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npm-run-all -p -r watch css:build esbuild",
+    "esbuild": "pnpm dlx esbuild src/controllers.js --bundle --minify --watch --outfile=wwwroot/js/site.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.17",
+    "esbuild": "0.20.1",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.35",
     "prettier": "3.2.5",

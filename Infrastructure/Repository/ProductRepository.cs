@@ -7,17 +7,17 @@ namespace Infrastructure.Repository;
 
 public class ProductRepository : IProductRepository
 {
-    public Task<Result<string>> CreateProduct(ProductDto productDto)
+    public Task<Result> CreateProduct(ProductDto productDto)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Result<string>> EditProduct(ProductDto productDto)
+    public Task<Result> EditProduct(ProductDto productDto)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Result<string>> RemoveProduct(string productId, string userId)
+    public Task<Result> RemoveProduct(string productId, string userId)
     {
         throw new NotImplementedException();
     }

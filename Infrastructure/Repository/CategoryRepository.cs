@@ -7,12 +7,17 @@ namespace Infrastructure.Repository;
 
 public class CategoryRepository : ICategoryRepository
 {
-    public Task<Result<string>> CreateCategory(CategoryDto categoryDto)
+    public Task<Result> CreateCategory(CategoryDto categoryDto)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Result<string>> DeleteCategory(string categoryId)
+    public Task<Result> DeleteCategory(string categoryId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<Result> EditCategory(string categoryId)
     {
         throw new NotImplementedException();
     }

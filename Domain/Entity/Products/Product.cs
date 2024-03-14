@@ -1,12 +1,16 @@
-﻿namespace Domain.Entity.Products;
+﻿using Domain.Entity.Categories;
+using Domain.Entity.ProductRelationships;
+
+namespace Domain.Entity.Products;
 
 public class Product
 {
     public string ProductId = Guid.NewGuid().ToString();
     public string Name { get; set; }
     public string Description { get; set; }
-    public float Price { get; set; }
-    public string Size { get; set; }
-    public int Remain { get; set; }
-    public List<ProductPicture>? ProductPictures { get; set; }
+    public string CategoryId { get; init; }
+    public Category Category { get; init; }
+    public List<ProductVariation>? ProductVariations { get; init; }
+    public List<PromotionProduct>? PromotionProducts { get; set; }
+    public List<RecentlyView>? RecentlyViews { get; init; }
 }

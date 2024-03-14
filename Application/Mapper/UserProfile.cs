@@ -1,5 +1,4 @@
-﻿using Application.AccountHandler;
-using Application.AccountHandler.Commands;
+﻿using Application.Accounts.Commands;
 using AutoMapper;
 using Domain.Entity.Users;
 
