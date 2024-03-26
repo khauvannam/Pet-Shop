@@ -1,4 +1,4 @@
-﻿using Domain.Entity.Errors;
+﻿using Domain.Common.Errors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Application.Results;

@@ -1,0 +1,62 @@
+﻿@model Domain.Entities.Users.RegisterViewModel
+
+@{
+    Layout = "_AuthLayout";
+    ViewData["title"] = "Register";
+}
+
+<div class="flex justify-center items-center p-12 h-[100vh] bg-[#f2f2f2] ">
+    <div class="flex gap-x-4 w-full h-full rounded-2xl">
+        <header class="w-7/12 ">
+           <img class="object-cover w-full h-full rounded-2xl" src="images/account/_Background.jpg" alt=""> 
+        </header>
+
+        <main class="w-5/12 p-6 flex flex-col h-full rounded-2xl border-e0 border-solid border-2 bg-white">
+            <header class="">
+                <div class="pt-2">
+                    <img class="w-[80px] " src="images/shared/_Logo.png" alt="">
+                </div>
+                <div class="py-4">
+                    <h1 class="text-4xl font-semibold">
+                        Helping hearts meet paws, one adoption at a time.
+                    </h1>
+                </div>
+            </header>
+            <form class="flex flex-col justify-between flex-1 gap-y-4 " asp-controller="Account" asp-action="Register" method="post">
+                <label class="flex flex-col">
+                    <p class="ml-2 mb-1 font-semibold">Email</p>
+                    <div class="rounded-2xl border-e0 border-2 border-solid px-5">
+                        <input placeholder="example@gmail.com" class="outline-0 py-3 w-full " type="text" asp-for="Email">
+                    </div>
+                    <span class="ml-2 text-danger text-xs mt-1.5" asp-validation-for="Email"></span>
+                </label>
+                <label class="flex flex-col">
+                    <p class="ml-2 mb-1 font-semibold">Username</p>
+                    <div class="rounded-2xl border-e0 border-2 border-solid px-5">
+                        <input placeholder="example123" class="outline-0 py-3 w-full " type="text" asp-for="UserName">
+                    </div>
+                    <span class="ml-2 text-danger text-xs mt-1.5" asp-validation-for="UserName"></span>
+                </label>
+                <label class="flex flex-col">
+                    <p class="ml-2 mb-1 font-semibold">Password</p>
+                    <div class="rounded-2xl border-e0 border-2 border-solid px-5">
+                        <input placeholder="At least 8 letters" class="outline-0 py-3 w-full " asp-for="Password" type="password">
+                    </div>
+                    <span class="ml-2 text-danger text-xs mt-1.5" asp-validation-for="Password"></span>
+                </label>
+                <label class="flex flex-col">
+                    <p class="ml-2 mb-1 font-semibold">Confirm Password</p>
+                    <div class="rounded-2xl border-e0 border-2 border-solid px-5">
+                        <input placeholder="Confirm password" class="outline-0 py-3 w-full " asp-for="ConfirmPassword" type="password">
+                    </div>
+                    <span class="ml-2 text-danger text-xs mt-1.5" asp-validation-for="ConfirmPassword"></span>
+                </label>
+                <div class="flex flex-col flex-1 justify-end">
+                    <button class="text-center rounded-2xl bg-amber-300 py-2 " type="submit">Submit</button>
+                    <p class="text-center my-2">Have registered? Go to the <a class="font-semibold underline" asp-controller="Home" asp-action="Index">Homepage</a></p>
+                </div>
+            </form>
+
+        </main>
+    </div>
+</div>

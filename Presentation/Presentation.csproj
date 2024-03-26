@@ -9,7 +9,6 @@
 <ItemGroup>
   <UpToDateCheckBuilt Include="wwwroot/css/site.css" Set="Css"/>
   <UpToDateCheckBuilt Include="tailwind.config.js" Set="Css"/>
-  <UpToDateCheckBuilt Include="wwwroot/css/site.js" Set="Js"/>
 </ItemGroup>
 
 <ItemGroup>
@@ -35,7 +34,8 @@
 <ItemGroup>
   <Folder Include="logs\" />
   <Folder Include="src\views\" />
-  <Folder Include="wwwroot\images\" />
+  <Folder Include="wwwroot\images\account\" />
+  <Folder Include="wwwroot\images\home\" />
 </ItemGroup>
 
 <ItemGroup>

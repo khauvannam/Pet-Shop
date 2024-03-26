@@ -1,4 +1,4 @@
-﻿using Domain.Entity.Roles;
+﻿using Domain.Common.Roles;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;

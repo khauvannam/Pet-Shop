@@ -1,6 +1,6 @@
-﻿using Application.Abstraction.Extensions;
-using Application.Abstraction.Services;
-using Domain.Entity.Errors;
+﻿using Application.Extensions;
+using Application.Interfaces.Services;
+using Domain.Common.Errors;
 using Microsoft.AspNetCore.Http;
 
 namespace Application.UserContexts;

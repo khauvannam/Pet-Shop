@@ -1,6 +1,6 @@
-﻿using Application.Accounts.Commands;
+﻿using Application.Commands.Accounts;
 using AutoMapper;
-using Domain.Entity.Users;
+using Domain.Entities.Users;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -14,7 +14,7 @@ public class AccountController(
     IValidator<RegisterViewModel> validator
 ) : Controller
 {
-    private const string ViewUrl = "~/Views/Auth/index.cshtml";
+    private const string ViewUrl = "~/Views/Account/index.cshtml";
 
     public IActionResult Index()
     {

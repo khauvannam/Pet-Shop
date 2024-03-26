@@ -1,7 +1,7 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Domain.Entity.Keys;
+using Domain.Common.Keys;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Application.JwtHandlers;
